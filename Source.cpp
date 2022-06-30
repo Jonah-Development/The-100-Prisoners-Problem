@@ -37,7 +37,6 @@ void RandomiseBoxes(std::vector<uint16_t>& boxes, const uint64_t seed);
 void RunRandom(uint16_t* boxes, uint32_t& succeed, const uint64_t seed);
 void RunMethod(uint16_t* boxes, uint32_t& succeed);
 void Run(size_t startVal, size_t endVal, uint64_t* won);
-template<typename T> int CountBuffer(T* buffer, T val, const size_t size);
 
 
 int main()
@@ -180,15 +179,4 @@ void RunMethod(uint16_t* boxes, uint32_t& succeed)
         // if just one prisoner doesn't make it, we don't need to continue
         if (i != MAX_BOXES_TO_OPEN + 1) return;
     }
-}
-
-template<typename T>
-int CountBuffer(T* buffer, T val, const size_t size)
-{
-    int result = 0;
-    for (size_t i = 0; i < size; i++)
-        if (buffer[i] == val)
-            result++;
-
-    return result;
 }
