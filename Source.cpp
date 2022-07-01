@@ -59,7 +59,7 @@ int main()
         "explained in Veritasium's video: https://www.youtube.com/watch?v=iSNsgj1OCLA\n" << std::endl;
 
     // all but 2 threads, at least 1
-    const auto processor_count = USE_MULTI_THREADING ? size_t(std::max<int64_t>(int64_t(std::thread::hardware_concurrency()) - 2, 2)) : 1;
+    const auto processor_count = USE_MULTI_THREADING ? size_t(std::max<int64_t>(int64_t(std::thread::hardware_concurrency()) - 2, 1)) : 1;
     std::cout << "Initializing " << processor_count << " threads." << std::endl;
     std::thread* threads = new std::thread[processor_count];
 
