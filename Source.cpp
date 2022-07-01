@@ -14,12 +14,12 @@
     * Use [NUM_PRISONERS] to change the number of prisoners. I use an unsigned 16-bit 
       integer, so the maximum number of prisoners would be UINT16_MAX.
     * Use [USE_MULTI_THREADING] to enable or disable multi threading.
-    
-    
+
+
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
-    OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE 
-    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR 
-    IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+	OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE 
+	LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR 
+	IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 #include <iostream>
@@ -59,7 +59,7 @@ int main()
         "explained in Veritasium's video: https://www.youtube.com/watch?v=iSNsgj1OCLA\n" << std::endl;
 
     // all but 2 threads, at least 1
-    const auto processor_count = USE_MULTI_THREADING ? size_t(std::max<int64_t>(std::thread::hardware_concurrency() - 2, 2)) : 1;
+    const auto processor_count = USE_MULTI_THREADING ? size_t(std::max<int64_t>(int64_t(std::thread::hardware_concurrency()) - 2, 2)) : 1;
     std::cout << "Initializing " << processor_count << " threads." << std::endl;
     std::thread* threads = new std::thread[processor_count];
 
